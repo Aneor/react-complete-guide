@@ -37,7 +37,8 @@ class App extends Component {
       { id: 3, name: 'Stephanie', age: 26 }
     ],
     showPersons: false,
-    showCockPit: true
+    showCockPit: true,
+    changeCounter: 0
   }
 
   deletePersonsHandler = (personIndex) => {
@@ -56,7 +57,10 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({ persons: persons });
+    this.setState((prevState, props) => {
+      return { persons: persons, 
+        changeCounter: this.state.changeCounter + 1 };
+    }); 
   }
 
   togglePersonsHandler = () => {
