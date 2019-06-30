@@ -30,11 +30,11 @@ const Cockpit = (props) => {
         btnClass = classes.Red;
     }
 
-    if (props.persons.length <= 2) {
+    if (props.personsLength <= 2) {
         assignedClasses.push(classes.red);
     }
 
-    if (props.persons.length <= 1) {
+    if (props.personsLength <= 1) {
         assignedClasses.push(classes.red);
     }
 
@@ -49,4 +49,5 @@ const Cockpit = (props) => {
     );
 };
 
-export default Cockpit;
+//// React memo only update the component if react detect change in any props here
+export default React.memo(Cockpit);

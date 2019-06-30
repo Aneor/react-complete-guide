@@ -1,29 +1,36 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Person from './Person/Person'
 
-class Persons extends Component {
+//// Pure components its a normal component 
+//// that implements shouldComponentUpdate validation for all props
+class Persons extends PureComponent {
 
     // static getDerivedStateFromProps(props, state){
     //     console.log('Persons.js getDerivedStateFromProps');
     //     return state;
     // }
 
-    shouldComponentUpdate(nextProps, nextState){
-        console.log('Persons.js shouldComponentUpdate');
-        return true;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {        
+    //     console.log('Persons.js shouldComponentUpdate');
 
-    getSnapshotBeforeUpdate(prevProps, prevState){
+    //     if(nextProps.persons !== this.props.persons){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('Persons.js getSnapshotBeforeUpdate');
-        return { message: 'Snapshot'};
+        return { message: 'Snapshot' };
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot){
+    componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('Person.js componentDidUpdate');
         console.log(snapshot);
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         console.log('Person.js componentWillUnmount');
     }
 
